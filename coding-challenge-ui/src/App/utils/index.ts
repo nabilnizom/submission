@@ -19,3 +19,16 @@ export const getFlagEmoji = (countryCode: string) => {
     .map((char: string) => 127397 + char.charCodeAt(0));
   return String.fromCodePoint(...codePoints);
 };
+
+export const filterByCharacter = (sortingCriteriaA: any, sortingCriteriaB: any) => {
+  
+  let aLen = sortingCriteriaA.length;
+  let bLen = sortingCriteriaB.length;
+
+  for (let i = 0; (i < aLen && i < bLen); i++){
+    if (sortingCriteriaA[i] != sortingCriteriaB[i]){
+      return (sortingCriteriaA.charCodeAt(i) - sortingCriteriaB.charCodeAt(i));
+    }
+  }
+  return (0);
+}

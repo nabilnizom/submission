@@ -9,6 +9,7 @@ const OverdueSales = ({ style }: any) => {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  
   useEffect(() => {
     (async () => {
       try {
@@ -19,6 +20,7 @@ const OverdueSales = ({ style }: any) => {
 
         const body = await resp.json();
 
+        
         if (!body?.orders?.length) {
           return setIsLoading(false);
         }
@@ -36,6 +38,7 @@ const OverdueSales = ({ style }: any) => {
     <Row style={style}>
       <Typography.Paragraph strong>Overdue Orders</Typography.Paragraph>
       <OverdueSalesTable isLoading={isLoading} orders={orders} />
+      <Typography.Paragraph/>
     </Row>
   );
 };

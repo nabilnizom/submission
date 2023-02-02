@@ -24,7 +24,6 @@ export const getStores = async () => {
       .on("data", (data: any) => stores.push(data))
       .on("end", () => resolve());
   });
-
   return stores;
 };
 
